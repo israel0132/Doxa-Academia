@@ -317,6 +317,14 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script>
+    // auto-fill referral code
+  const urlParams = new URLSearchParams(window.location.search);
+  const referralCode = urlParams.get('referral');
+
+  if (referralCode) {
+    document.getElementById('referralCode').value = referralCode;
+  }
+    
     // Prevent form submission if payment ID is invalid
     function validateForm() {
       const verificationCheckbox = document.getElementById("verificationCheckbox");
