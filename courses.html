@@ -72,7 +72,7 @@
         border: none;
     }
     .data {
-      display: block;
+      display: none;
     }
     
 
@@ -292,6 +292,7 @@
           </div>
           <input type="submit"  id="button" value="Send Email">
       </form>
+          
         <p style="font-size: 15px; margin-top: 20px; text-align: center; color: #c82a41">You will receive a confirmatory email in 1 hours time. it will include your seat number and referral code.</p>
         </div>
       </div>
@@ -398,9 +399,12 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script type="text/javascript">
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
         emailjs.init('xuPSvDnlCU0yAqVaI');
     </script>
+  
   <script>
         const btn = document.getElementById('button');
         const paymentIdInput = document.getElementById("paymentId");
