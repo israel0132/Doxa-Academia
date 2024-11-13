@@ -72,7 +72,7 @@
         border: none;
     }
     .data {
-      display: none;
+      display: block;
     }
     
 
@@ -485,15 +485,13 @@
             });
             //////////////////////////////
           
-              
+             document.getElementById("registerButton").addEventListener("click", function() {
+        document.getElementById("button").click();
+    }); 
         
           
     </script>
-  <script>
-      document.getElementById("registerButton").addEventListener("click", function() {
-        document.getElementById("button").click();
-    });
-    </script>
+  
   <script>
     // auto-fill referral code
   const urlParams = new URLSearchParams(window.location.search);
