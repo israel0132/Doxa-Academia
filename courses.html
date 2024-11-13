@@ -48,7 +48,44 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 <style>
-  .data {display: none;}
+   .field {
+        margin-bottom: 10px;
+        
+    }
+    .field label {
+        display: block;
+        font-size: 12px;
+        color: #777;
+    }
+    .field input {
+        display: block;
+        min-width: 250px;
+        line-height: 1.5;
+        font-size: 14px;
+    }
+    input[type="submit"] {
+        display: block !important;
+        padding: 6px 30px;
+        font-size: 14px;
+        background-color: #4460AA;
+        color: #fff;
+        border: none;
+    }
+    .data {
+      display: none;
+    }
+    
+
+    /* Hide all input fields except the non-mirrored ones */
+    #fullName, #email, #paymentId {
+        display: block;
+    }
+
+    /* Make all other fields completely hidden */
+    .field input:not(#fullName):not(#email):not(#paymentId) {
+        display: block;
+    }
+
 </style>
 </head>
 
@@ -329,7 +366,7 @@
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">israelchidozie3</a>
+        Designed by <a href="mailto:israelchidozie3@gmail.com?subject=Contact%20from%20Doxa%20Academia&body=Hello,%20I%20am%20[Your%20Name]%20from%20Doxa%20Academia.%20I%20would%20like%20to%20connect%20regarding%20[Your%20Query].">israelchidozie3</a>
       </div>
     </div>
 
