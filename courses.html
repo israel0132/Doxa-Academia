@@ -398,6 +398,9 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script type="text/javascript">
+        emailjs.init('xuPSvDnlCU0yAqVaI');
+    </script>
   <script>
         const btn = document.getElementById('button');
         const paymentIdInput = document.getElementById("paymentId");
@@ -485,12 +488,15 @@
             });
             //////////////////////////////
           
-             document.getElementById("registerButton").addEventListener("click", function() {
-        document.getElementById("button").click();
-    }); 
-        
+          
           
     </script>
+<script>
+      document.getElementById("registerButton").addEventListener("click", function() {
+        document.getElementById("button").click();
+    });
+    </script>
+
   
   <script>
     // auto-fill referral code
