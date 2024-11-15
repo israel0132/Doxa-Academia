@@ -1894,9 +1894,9 @@ section,
 
 @keyframes fadeText {
   0%, 25% { content: "Doxa Academia"; }
-  26%, 50% { content: "Invite Friends"; }
+  26%, 50% { content: "Inform Friends"; }
   51%, 75% { content: "Learn Together"; }
-  76%, 100% { content: "Refer and Earn"; }
+  76%, 100% { content: "Refer and €arn"; }
 }
 .rotating-text::after {
   content: "Doxa Academia";
