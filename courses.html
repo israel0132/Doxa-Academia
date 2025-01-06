@@ -407,93 +407,93 @@
     </script>
   
   <script>
-        const btn = document.getElementById('button');
-        const paymentIdInput = document.getElementById("paymentId");
-        const paymentIdMirrorInput = document.getElementById("paymentId_mirror");
-        const subscriptionTierInput = document.getElementById("subscription_tier");
-        const seatNumberInput = document.getElementById("seat_number1");
-        const idInput = document.getElementById("id1");
-        const referralCodeInput = document.getElementById("referral_code1");
-        const referralLinkInput = document.getElementById("referral_link1");
+      const btn = document.getElementById('button');
+const paymentIdInput = document.getElementById("paymentId");
+const paymentIdMirrorInput = document.getElementById("paymentId_mirror");
+const subscriptionTierInput = document.getElementById("subscription_tier");
+const seatNumberInput = document.getElementById("seat_number1");
+const idInput = document.getElementById("id1");
+const referralCodeInput = document.getElementById("referral_code1");
+const referralLinkInput = document.getElementById("referral_link1");
 
-        const fullNameInput = document.getElementById("fullName");
-        const nameMirrorInput = document.getElementById("name_mirror");
-        const emailInput = document.getElementById("email");
-        const emailMirrorInput = document.getElementById("email_mirror");
+const fullNameInput = document.getElementById("fullName");
+const nameMirrorInput = document.getElementById("name_mirror");
+const emailInput = document.getElementById("email");
+const emailMirrorInput = document.getElementById("email_mirror");
 
-        // Mirror name and email inputs
-        fullNameInput.addEventListener("input", () => {
-            nameMirrorInput.value = fullNameInput.value;
-        });
+// Mirror name and email inputs
+fullNameInput.addEventListener("input", () => {
+    nameMirrorInput.value = fullNameInput.value;
+});
 
-        emailInput.addEventListener("input", () => {
-            emailMirrorInput.value = emailInput.value;
-        });
+emailInput.addEventListener("input", () => {
+    emailMirrorInput.value = emailInput.value;
+});
 
-        // Function to mirror paymentId and set subscription tier, seat number, ID, referral code, and referral link
-        paymentIdInput.addEventListener("input", () => {
-            const realId = paymentIdInput.value;
-            paymentIdMirrorInput.value = realId; // Mirror the payment ID
+// Function to mirror paymentId and set subscription tier, seat number, ID, referral code, and referral link
+paymentIdInput.addEventListener("input", () => {
+    const realId = paymentIdInput.value;
+    paymentIdMirrorInput.value = realId; // Mirror the payment ID
 
-            // Extract the numbers at the beginning
-            const numberMatch = realId.match(/^\d+/);
-            let numbers = numberMatch ? numberMatch[0] : "";
+    // Extract the numbers at the beginning
+    const numberMatch = realId.match(/^\d+/);
+    let numbers = numberMatch ? numberMatch[0] : "";
 
-            // Find the first letter after the initial numbers
-            const letterMatch = realId.slice(numbers.length).match(/[A-Za-z]/);
-            let letter = letterMatch ? letterMatch[0] : "";
+    // Find the first two letters after the initial numbers
+    const letterMatch = realId.slice(numbers.length).match(/[A-Za-z]{2}/);
+    let letters = letterMatch ? letterMatch[0] : "";
 
-            // Set subscription tier based on first letter
-            if (letter === "B") {
-                subscriptionTierInput.value = "Basic";
-            } else if (letter === "A") {
-                subscriptionTierInput.value = "Achiever!";
-            } else if (letter === "E") {
-                subscriptionTierInput.value = "Ambassador";
-            } else {
-                subscriptionTierInput.value = ""; // Clear if no match
-            }
+    // Set subscription tier based on first two letters
+    if (letters === "Ag") {
+        subscriptionTierInput.value = "Agents";
+    } else if (letters[0] === "B") {
+        subscriptionTierInput.value = "Basic";
+    } else if (letters[0] === "A") {
+        subscriptionTierInput.value = "Achiever!";
+    } else if (letters[0] === "E") {
+        subscriptionTierInput.value = "Ambassador";
+    } else {
+        subscriptionTierInput.value = ""; // Clear if no match
+    }
 
-            // Convert number to hexadecimal if letter is 'E' or 'A'
-            if (letter === "E") {
-                letter = "X";
-                numbers = parseInt(numbers).toString(16).toUpperCase();
-            } else if (letter === "A") {
-                numbers = parseInt(numbers).toString(16).toUpperCase();
-            }
+    // Convert number to hexadecimal if first letter is 'E' or 'A'
+    if (letters[0] === "E") {
+        letters = "X";
+        numbers = parseInt(numbers).toString(16).toUpperCase();
+    } else if (letters[0] === "A") {
+        numbers = parseInt(numbers).toString(16).toUpperCase();
+    }
 
-            // Construct seat number and ID with prefix 'DA2425'
-            const seatNumber = `${letter}${numbers}`;
-            const id = `DA2425${seatNumber}`;
+    // Construct seat number and ID with prefix 'DA2425'
+    const seatNumber = `${letters}${numbers}`;
+    const id = `DA2425${seatNumber}`;
 
-            // Set values for seat number, ID, referral code, and referral link
-            seatNumberInput.value = seatNumber;
-            idInput.value = id;
-            referralCodeInput.value = id;
-            referralLinkInput.value = `https://israel0132.github.io/Doxa-Academia/courses.html?referral=${id}`;
-        });
+    // Set values for seat number, ID, referral code, and referral link
+    seatNumberInput.value = seatNumber;
+    idInput.value = id;
+    referralCodeInput.value = id;
+    referralLinkInput.value = `https://israel0132.github.io/Doxa-Academia/courses.html?referral=${id}`;
+});
 
-        // EmailJS send form
-        document.getElementById('form')
-            .addEventListener('submit', function(event) {
-                event.preventDefault();
-                btn.value = 'Sending...';
+// EmailJS send form
+document.getElementById('form')
+    .addEventListener('submit', function(event) {
+        event.preventDefault();
+        btn.value = 'Sending...';
 
-                const serviceID = 'default_service';
-                const templateID = 'template_h711kiv';
+        const serviceID = 'default_service';
+        const templateID = 'template_h711kiv';
 
-                emailjs.sendForm(serviceID, templateID, this)
-                    .then(() => {
-                        btn.value = 'Send Email';
-                        alert('Sent!');
-                    }, (err) => {
-                        btn.value = 'Send Email';
-                        alert(JSON.stringify(err));
-                    });
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                btn.value = 'Send Email';
+                alert('Sent!');
+            }, (err) => {
+                btn.value = 'Send Email';
+                alert(JSON.stringify(err));
             });
-            //////////////////////////////
-          
-          
+    });
+
           
     </script>
 <script>
