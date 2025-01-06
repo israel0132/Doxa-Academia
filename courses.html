@@ -460,6 +460,8 @@ paymentIdInput.addEventListener("input", () => {
     if (letters[0] === "E") {
         letters = "X";
         numbers = parseInt(numbers).toString(16).toUpperCase();
+    } else if (letters === "Ag") {
+        letters = "Ag";
     } else if (letters[0] === "A") {
         numbers = parseInt(numbers).toString(16).toUpperCase();
     }
@@ -484,7 +486,16 @@ document.getElementById('form')
         const serviceID = 'default_service';
         const templateID = 'template_h711kiv';
 
-        emailjs.sendForm(serviceID, templateID, this)
+        // Add seat number to the email content dynamically
+        const emailContent = this;
+        const seatNumber = document.getElementById("seat_number1").value;
+        const hiddenSeatNumberField = document.createElement("input");
+        hiddenSeatNumberField.setAttribute("type", "hidden");
+        hiddenSeatNumberField.setAttribute("name", "seat_number");
+        hiddenSeatNumberField.setAttribute("value", seatNumber);
+        emailContent.appendChild(hiddenSeatNumberField);
+
+        emailjs.sendForm(serviceID, templateID, emailContent)
             .then(() => {
                 btn.value = 'Send Email';
                 alert('Sent!');
@@ -493,7 +504,6 @@ document.getElementById('form')
                 alert(JSON.stringify(err));
             });
     });
-
           
     </script>
 <script>
