@@ -105,7 +105,7 @@
               <h1>Membership</h1>
               <p class="mb-0">With your Exclusive Pass or Access Code, unlock our premium tutorials at Doxa Academia. Each pass grants you full entry to expert lessons, resources, and dedicated support, setting you up for excellence from day one. Join us to start learning, achieving, and growing together!</p><br>
               <p class="mb-0"><a href="https://isubz.com.ng" style="color: white;"><b><u>iSubz</u></b></a> cashback ends in:</p>
-              <p id="countdown" class="mb-0"></p>
+              
             </div>
           </div>
         </div>
@@ -181,7 +181,9 @@
           <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="pricing-item">
               <h3>Basic</h3>
-              <h4><sup>₦</sup>8,000<span> / semester</span></h4>
+              <h4><sup>₦</sup><s>8,000</s><span> / semester</span></h4>
+              <h5>Save more, pay ₦6,000 before the countdown</h5>
+              <p >Discount ends in <span style="color: red;" id="countdown"></span></p>
               <ul>
                 <li>Full access to tutorials</li>
                 <li>Basic Seat Number (e.g., B1436)</li>
@@ -314,7 +316,7 @@
   <script src="assets/js/main.js"></script>
   <script>
       // Set the target date here (year, month - 1, day, hour, minute, second)
-      const targetDate = new Date(2024, 11, 31, 23, 59, 59); // Example: Dec 31, 2024, at 11:59:59 PM
+      const targetDate = new Date(2025, 0, 18, 23, 59, 59); // Example: Dec 31, 2024, at 11:59:59 PM
 
       function updateCountdown() {
           const now = new Date();
