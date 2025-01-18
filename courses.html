@@ -388,25 +388,17 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
 
-
-
-
-
-
-
-
-
-
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
   
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         emailjs.init('xuPSvDnlCU0yAqVaI');
     </script>
-  
-  <script>
-     const btn = document.getElementById('button');
+
+    <script>
+        const btn = document.getElementById('button');
         const paymentIdInput = document.getElementById("paymentId");
         const paymentIdMirrorInput = document.getElementById("paymentId_mirror");
         const subscriptionTierInput = document.getElementById("subscription_tier");
@@ -472,51 +464,38 @@
             referralLinkInput.value = `https://israel0132.github.io/Doxa-Academia/courses.html?referral=${id}`;
         });
 
-// EmailJS send form
-document.getElementById('form')
-    .addEventListener('submit', function(event) {
-        event.preventDefault();
-        btn.value = 'Sending...';
+        // EmailJS send form
+        document.getElementById('form')
+            .addEventListener('submit', function(event) {
+                event.preventDefault();
+                btn.value = 'Sending...';
 
-        const serviceID = 'default_service';
-        const templateID = 'template_h711kiv';
+                const serviceID = 'default_service';
+                const templateID = 'template_h711kiv';
 
-        // Add seat number to the email content dynamically
-        const emailContent = this;
-        const seatNumber = document.getElementById("seat_number1").value;
-        const hiddenSeatNumberField = document.createElement("input");
-        hiddenSeatNumberField.setAttribute("type", "hidden");
-        hiddenSeatNumberField.setAttribute("name", "seat_number");
-        hiddenSeatNumberField.setAttribute("value", seatNumber);
-        emailContent.appendChild(hiddenSeatNumberField);
-
-        emailjs.sendForm(serviceID, templateID, emailContent)
-            .then(() => {
-                btn.value = 'Send Email';
-                alert('Sent!');
-            }, (err) => {
-                btn.value = 'Send Email';
-                alert(JSON.stringify(err));
+                emailjs.sendForm(serviceID, templateID, this)
+                    .then(() => {
+                        btn.value = 'Send Email';
+                        alert('Sent!');
+                    }, (err) => {
+                        btn.value = 'Send Email';
+                        alert(JSON.stringify(err));
+                    });
             });
-    });
+            //////////////////////////////
+          
+              
+        
           
     </script>
-<script>
+
+    <script>
       document.getElementById("registerButton").addEventListener("click", function() {
         document.getElementById("button").click();
     });
     </script>
 
-  
   <script>
-    // auto-fill referral code
-  const urlParams = new URLSearchParams(window.location.search);
-  const referralCode = urlParams.get('referral');
-
-  if (referralCode) {
-    document.getElementById('referralCode').value = referralCode;
-  }
-    
     // Prevent form submission if payment ID is invalid
     function validateForm() {
       const verificationCheckbox = document.getElementById("verificationCheckbox");
@@ -540,7 +519,7 @@ const paymentCodes = {
 "6BASIC&cwwtcrNn|J*{>0C2gujOzh>": "Basic Package subscribed",
 "7BASIC2YwK3E51BEQkj@oE*MTIRi:.": "Basic Package subscribed",
 "8BASIC7M9?pPG:gYY@(u%g{Z$4t@w^": "Basic Package subscribed",
-"9BASIC+Tr[JEQ;Ou0Tfz5>H:WaQH<T": "Basic Package subscribed",
+"9BASIC+Tr[JEQ;Ou0Tfz5>H:WaQH<T": "Already Used",
 "10BASICFS4xJ&qBw;Od4GWaWaV06Y[": "Basic Package subscribed",
 "11BASIC(?cyhO{,gib@rYjm5WkHyg@": "Basic Package subscribed",
 "12BASIC#S)0}4E1l%gS38*a}9QwcdR": "Basic Package subscribed",
